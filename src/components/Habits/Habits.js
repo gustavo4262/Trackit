@@ -62,12 +62,12 @@ export default function Habits() {
         Authorization: `Bearer ${user.token}`,
       },
     };
-    axios.post(url, newHabit, config);
+    let request = axios.post(url, newHabit, config);
+    request.then(() => loadHabits());
 
     setBooleanNewHabit(false);
     setHabitName("");
     setHabitDays([0, 0, 0, 0, 0, 0, 0]);
-    loadHabits();
   }
   return (
     <>
